@@ -12,10 +12,10 @@ const authRoutes = require("./routes/auth.route.js") // Add this line
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow requests from your frontend origin
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-    credentials: true, // If you need to handle cookies or authorization headers
+    origin: true, // Allow all origins temporarily for testing
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   }),
 )
 app.use(express.json())

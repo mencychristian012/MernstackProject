@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { signup } from "../../redux/actions/authActions";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -11,14 +12,11 @@ const Signup = () => {
   
   // Yup validation schema matching tutorial requirements
   const SignupSchema = Yup.object().shape({
-    fullname: Yup.string()
+    name: Yup.string()
       .required("Fullname is required"),
     email: Yup.string()
       .email("Invalid email format")
       .required("Email is required"),
-    phone: Yup.string()
-      .matches(/^[0-9]{10,15}$/, "Phone must be 10-15 digits")
-      .required("Phone is required"),
     password: Yup.string()
       .min(6, "Minimum 6 characters")
       .required("Password is required"),
@@ -43,9 +41,8 @@ const Signup = () => {
 
         <Formik
           initialValues={{
-            fullname: "",
+            name: "",
             email: "",
-            phone: "",
             password: "",
             confirmPassword: "",
           }}
@@ -67,11 +64,11 @@ const Signup = () => {
                 <label className="form-label">Fullname</label>
                 <Field
                   type="text"
-                  name="fullname"
+                  name="name"
                   className="form-control"
                 />
                 <ErrorMessage
-                  name="fullname"
+                  name="name"
                   component="div"
                   className="text-danger"
                 />
@@ -91,7 +88,7 @@ const Signup = () => {
                 />
               </div>
 
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <label className="form-label">Phone</label>
                 <Field
                   type="text"
@@ -103,7 +100,7 @@ const Signup = () => {
                   component="div"
                   className="text-danger"
                 />
-              </div>
+              </div> */}
 
               <div className="mb-3">
                 <label className="form-label">Password</label>
