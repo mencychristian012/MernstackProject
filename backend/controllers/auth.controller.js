@@ -2,7 +2,7 @@ const User = require("../models/user.model.js"); // Changed from import
 const bcrypt = require("bcryptjs"); // Changed from import
 const jwt = require("jsonwebtoken"); // Changed from import
 
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
+const JWT_SECRET = process.env.JWT_SECRET || "prodmanag3r_2025_secure_token";
 
 // Register
 const register = async (req, res) => {
