@@ -51,6 +51,7 @@ export const addProduct = (product) => async (dispatch) => {
 
     dispatch({ type: CREATE_PRODUCT_SUCCESS, payload: data })
     toast.success("Product created successfully!")
+    dispatch(fetchProducts())
   } catch (error) {
     dispatch({ type: CREATE_PRODUCT_FAILURE, payload: error.message })
     toast.error("Failed to create product")
@@ -58,10 +59,10 @@ export const addProduct = (product) => async (dispatch) => {
 }
 
 // Update product
-export const updateProduct = (id, product) => async (dispatch) => {
+export const updateProduct = (_id, product) => async (dispatch) => {
   dispatch({ type: UPDATE_PRODUCT_REQUEST })
   try {
-    const res = await fetch(`https://mernstackproject-1-rd07.onrender.com/api/products/${id}`, {
+    const res = await fetch(`https://mernstackproject-1-rd07.onrender.com/api/products/${_id}`, {
       // Changed from 5001 to 5000
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -71,6 +72,7 @@ export const updateProduct = (id, product) => async (dispatch) => {
 
     dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: data })
     toast.success("Product updated successfully!")
+    dispatch(fetchProducts())
   } catch (error) {
     dispatch({ type: UPDATE_PRODUCT_FAILURE, payload: error.message })
     toast.error("Failed to update product")
@@ -78,16 +80,17 @@ export const updateProduct = (id, product) => async (dispatch) => {
 }
 
 // Delete product
-export const deleteProduct = (id) => async (dispatch) => {
+export const deleteProduct = (_id) => async (dispatch) => {
   dispatch({ type: DELETE_PRODUCT_REQUEST })
   try {
-    await fetch(`https://mernstackproject-1-rd07.onrender.com/api/products/${id}`, {
+    await fetch(`https://mernstackproject-1-rd07.onrender.com/api/products/${_id}`, {
       // Changed from 5001 to 5000
       method: "DELETE",
     })
 
-    dispatch({ type: DELETE_PRODUCT_SUCCESS, payload: id })
+    dispatch({ type: DELETE_PRODUCT_SUCCESS, payload: _id })
     toast.success("Product deleted successfully!")
+    dispatch(fetchProducts())
   } catch (error) {
     dispatch({ type: DELETE_PRODUCT_FAILURE, payload: error.message })
     toast.error("Failed to delete product")
