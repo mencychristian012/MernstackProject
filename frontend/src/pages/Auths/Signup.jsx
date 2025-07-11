@@ -53,7 +53,7 @@ const Signup = () => {
             const success = await dispatch(signup(values));
             if (success){
               resetForm();
-              navigate("/products");
+              navigate("/");
             }
             setSubmitting(false);
           }}
