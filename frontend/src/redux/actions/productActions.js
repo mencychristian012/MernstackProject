@@ -27,7 +27,7 @@ export const DELETE_PRODUCT_FAILURE = "DELETE_PRODUCT_FAILURE"
 export const fetchProducts = () => async (dispatch) => {
   dispatch({ type: FETCH_PRODUCTS_REQUEST })
   try {
-    const res = await fetch("http://mernstackproject-1-rd07.onrender.com/api/products")
+    const res = await fetch("https://mernstackproject-1-rd07.onrender.com/api/products")
     const data = await res.json()
 
     dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: data })
@@ -41,7 +41,7 @@ export const fetchProducts = () => async (dispatch) => {
 export const addProduct = (product) => async (dispatch) => {
   dispatch({ type: CREATE_PRODUCT_REQUEST })
   try {
-    const res = await fetch("http://mernstackproject-1-rd07.onrender.com/api/products", {
+    const res = await fetch("https://mernstackproject-1-rd07.onrender.com/api/products", {
       // Changed from 5001 to 5000
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ export const addProduct = (product) => async (dispatch) => {
 export const updateProduct = (id, product) => async (dispatch) => {
   dispatch({ type: UPDATE_PRODUCT_REQUEST })
   try {
-    const res = await fetch(`http://mernstackproject-1-rd07.onrender.com/api/products/${id}`, {
+    const res = await fetch(`https://mernstackproject-1-rd07.onrender.com/api/products/${id}`, {
       // Changed from 5001 to 5000
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -81,7 +81,7 @@ export const updateProduct = (id, product) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
   dispatch({ type: DELETE_PRODUCT_REQUEST })
   try {
-    await fetch(`http://mernstackproject-1-rd07.onrender.com/api/products/${id}`, {
+    await fetch(`https://mernstackproject-1-rd07.onrender.com/api/products/${id}`, {
       // Changed from 5001 to 5000
       method: "DELETE",
     })
