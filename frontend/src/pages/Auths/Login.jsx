@@ -43,7 +43,7 @@ const Login = () => {
             const success = await dispatch(login(values));
             if (success){
               resetForm();
-              navigate("/products");
+              navigate("/");
             }
             setSubmitting(false);
           }}
