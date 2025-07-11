@@ -38,13 +38,13 @@ const Products = () => {
 
   const handleDelete = (product) => {
     if (window.confirm(`Are you sure you want to delete "${product.title}"?`)) {
-      dispatch(deleteProduct(product.id));
+      dispatch(deleteProduct(product._id));
     }
   };
 
   const handleSubmit = (values) => {
     if (editItem) {
-      dispatch(updateProduct(editItem.id, values));
+      dispatch(updateProduct(editItem._id, values));
     } else {
       dispatch(addProduct(values));
     }
@@ -110,7 +110,7 @@ const Products = () => {
         ) : (
           <Row className="g-4">
             {items.map((product) => (
-              <Col key={product.id} xs={12} sm={6} md={3} lg={3}>
+              <Col key={product._id} xs={12} sm={6} md={3} lg={3}>
                 <ProductCard 
                   product={product} 
                   onEdit={handleEdit}
