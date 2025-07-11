@@ -13,7 +13,7 @@ export const signup = (values) => async (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST })
   try {
     const res = await fetch(
-      "http://mernstackproject-1-rd07.onrender.com/api/auth/register", // Changed from 5001 to 5000
+      "https://mernstackproject-1-rd07.onrender.com/api/auth/register", // Changed from 5001 to 5000
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,7 +46,7 @@ export const login = (values) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST })
   try {
     const res = await fetch(
-      "http://mernstackproject-1-rd07.onrender.com/api/auth/login", // Changed from 5001 to 5000
+      "https://mernstackproject-1-rd07.onrender.com/api/auth/login", // Changed from 5001 to 5000
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
