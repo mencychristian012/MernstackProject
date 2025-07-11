@@ -36,7 +36,7 @@ const Login = () => {
             email: "",
             password: "",
           }}
-          validationSchema={SignupSchema}
+          validationSchema={LoginSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             console.log("Form values:", values);
 
