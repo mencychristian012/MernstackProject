@@ -49,7 +49,7 @@ import {
           ...state,
           updateLoading: false,
           items: state.items.map((item) =>
-            item.id === action.payload.id ? action.payload : item
+            item._id === action.payload._id ? action.payload : item
           ),
         };
       case UPDATE_PRODUCT_FAILURE:
@@ -61,7 +61,7 @@ import {
         return {
           ...state,
           deleteLoading: false,
-          items: state.items.filter((item) => item.id !== action.payload),
+          items: state.items.filter((item) => item._id !== action.payload),
         };
       case DELETE_PRODUCT_FAILURE:
         return { ...state, deleteLoading: false, error: action.payload };
