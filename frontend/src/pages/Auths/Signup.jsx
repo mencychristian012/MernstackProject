@@ -138,7 +138,7 @@ const Signup = () => {
                 {isSubmitting ? "Signing up..." : "Sign Up"}
               </button>
               <div className="text-center mt-3">
-                  Already have an account? <Link to="/Login">Login</Link>
+                  Already have an account? <Link to="/login">Login</Link>
               </div>
             </Form>
           )}
