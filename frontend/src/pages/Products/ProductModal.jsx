@@ -6,9 +6,9 @@ import * as Yup from "yup";
 
 const ProductModal = ({ show, onClose, initialValues, onSubmit, isEdit, loading }) => {
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required("Product name is required"),
-    image: Yup.string().required("Banner is required"),
-    description: Yup.string().required("Description is required"),
+    title: Yup.string().trim().required("Product name is required"),
+    image: Yup.string().trim().required("Banner is required"),
+    description: Yup.string().trim().required("Description is required"),
     price: Yup.number().required("Price is required").positive(),
   });
 
@@ -43,7 +43,7 @@ const ProductModal = ({ show, onClose, initialValues, onSubmit, isEdit, loading 
             <Form.Group className="mb-3">
               <Form.Label>Product Name</Form.Label>
               <Form.Control
-                type="text"
+                type="url"
                 name="title"
                 placeholder="Enter product name"
                 value={values.title}
